@@ -9,10 +9,8 @@ import SwiftUI
 
 struct SettingView: View {
     var body: some View {
+
         VStack(spacing:50) {
-            Text("This week alone you delete {number} of pictures")
-                .font(Font.largeTitle)
-                .bold()
             Grid(horizontalSpacing: 0, verticalSpacing: 0){
                 GridRow{
                     Button(action: {}){
@@ -20,7 +18,7 @@ struct SettingView: View {
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 170, height: 170)
                             .background(.retroAtariCyan, in: RoundedRectangle(cornerRadius: 15))
                         }
                     Image(systemName: "globe")
@@ -32,13 +30,14 @@ struct SettingView: View {
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 170, height: 170)
                             .background(.gray, in: RoundedRectangle(cornerRadius: 15))
                     }
                 }
             }
             .padding() 
         }
+    
     }
 }
 

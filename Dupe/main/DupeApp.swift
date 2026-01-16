@@ -8,15 +8,10 @@
 import SwiftUI
 
 @main
-struct DupeApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            ZStack{
-                Color(.retroAtariPrimary).ignoresSafeArea()
-                IndexView()
-            }
+            IndexView() 
         }
     }
 }
-
-

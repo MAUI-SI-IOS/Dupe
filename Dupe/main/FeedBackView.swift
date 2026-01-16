@@ -10,6 +10,7 @@ import SwiftUI
 struct FeedBackView: View {
     var body: some View {
         VStack(spacing:50) {
+            
             Text("\"ratings\"")
                 .font(Font.largeTitle)
                 .bold()

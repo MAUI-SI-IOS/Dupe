@@ -1,5 +1,5 @@
 //
-//  Index.swift
+//  FeatureView.swift
 //  Dupe
 //
 //  Created by William Descoteaux on 2026-01-16.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct IndexView: View {
+struct FeatureView: View {
+    @State private var navigateToSetting: Bool = false
+    @State private var dragOffset: CGSize = .zero
+    
     var body: some View {
         VStack(spacing:50) {
-            Text("\"InspirationQuote\"")
-                .font(Font.largeTitle)
-                .bold()
             Grid(horizontalSpacing: 0, verticalSpacing: 0){
                 GridRow{
                     Image(systemName: "globe")
@@ -27,23 +27,21 @@ struct IndexView: View {
                 }
                 GridRow{
                     Button(action: {}){
-                        Text("Online service")
+                        Text("Connect")
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
                             .frame(width: 170, height: 170)
                             .background(.retroAtariRed, in: RoundedRectangle(cornerRadius: 15))
-                    } 
+                    }
                     Image(systemName: "globe")
                 }
             }
             .padding()
-            
-            //button navigation here
         }
     }
 }
 
 #Preview {
-    IndexView()
+    FeatureView()
 }
