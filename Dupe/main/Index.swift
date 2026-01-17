@@ -29,9 +29,10 @@ struct IndexView: View {
             
             TabView(selection: $currentView) {
                 FeatureView() .tag(Tabs.main)
-                SettingView() .tag(Tabs.setting)
+                PersonnalView() .tag(Tabs.setting)
                 FeedBackView().tag(Tabs.rating)
-            }.tabViewStyle(.page(indexDisplayMode: .never))
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
             
         }
         .background(.retroAtariPrimary)

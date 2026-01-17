@@ -21,7 +21,7 @@ struct FeedBackView: View {
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 170, height: 170)
                             .background(.retroAtariGreen, in: RoundedRectangle(cornerRadius: 15))
                     }
                 }
