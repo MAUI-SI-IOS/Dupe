@@ -11,8 +11,7 @@ struct settingsView: View {
  
     var body: some View {
         VStack(spacing: 20) {
-            
-            
+
         }
         .padding()
         .frame(maxWidth: .infinity,maxHeight: .infinity)
