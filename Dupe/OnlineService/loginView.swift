@@ -13,35 +13,40 @@ struct LoginView: View{
     @State private var authservice = AuthService.shared
         var body: some View {
             NavigationStack {
-                VStack(alignment: .center, spacing: 20){
-                    
-                    Text("This app accepts google accounts only")
-                    
-                    Spacer()
-                    
-     
-                    VStack(alignment: .leading, spacing: 20){
-                        TextField("email", text:$email)
+                ZStack {
+                    Color.retroAtariPrimary.ignoresSafeArea()
+                    VStack(alignment: .center, spacing: 20){
                         
-                        SecureField("password", text:$password)
+                        Text("This app accepts google accounts only")
                         
-                        Button(action: login ){
-                            Text("login").frame(maxWidth: .infinity)
+                        Spacer()
+                        
+                        
+                        VStack(alignment: .leading, spacing: 20){
+                            TextField("email", text:$email)
+                            
+                            SecureField("password", text:$password)
+                            
+                            Button(action: login ){
+                                Text("login").frame(maxWidth: .infinity)
+                            }
+                            
                         }
+                        if let err = authservice.errorMessage {
+                            Text(err).foregroundColor(.red)
+                        }
+                        Spacer()
                         
+                        NavigationLink(destination: SignUpView()){
+                            Text("i don't have an account").frame(maxWidth: .infinity)
+                        }
                     }
-                    
-                    Spacer()
-                    
-                    NavigationLink(destination: SignUpView()){
-                        Text("i don't have an account").frame(maxWidth: .infinity)
-                    }
+                    .font(Font.title.bold())
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                 }
-                .font(Font.title.bold())
-                .padding()
-                .textFieldStyle(.roundedBorder)
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
             }
         }
     func login(){

@@ -14,32 +14,35 @@ public struct SignUpView: View {
     
     @State private var authservice = AuthService.shared
     public var body: some View {
-        VStack{
-            Text("Sign up").font(.largeTitle)
-        
-            TextField("email",  text: $email )
-     
-            SecureField("password",text: $password )
-              
-            Button(action:{
-                authservice.signup(
-                    email: email,
-                    password: password
-                )
-            })
-            {
-                Text("sign in").frame(maxWidth: .infinity)
+        ZStack{
+            Color.retroAtariPrimary.ignoresSafeArea()
+            VStack{
+                Text("Sign up").font(.largeTitle)
+                
+                TextField("email",  text: $email )
+                
+                SecureField("password",text: $password )
+                
+                Button(action:{
+                    authservice.signup(
+                        email: email,
+                        password: password
+                    )
+                })
+                {
+                    Text("sign in").frame(maxWidth: .infinity)
+                }
+                
+                if let err = authservice.errorMessage {
+                    Text(err).foregroundColor(.red)
+                }
+                
             }
-            
-            if let err = authservice.errorMessage {
-                Text(err).foregroundColor(.red)
-            }
-
+            .textFieldStyle(.roundedBorder)
+            .font(Font.title).bold()
+            .buttonStyle(.borderedProminent)
+            .padding(20)
         }
-        .textFieldStyle(.roundedBorder)
-        .font(Font.title).bold()
-        .buttonStyle(.borderedProminent)
-        .padding(20)
         
     }
     

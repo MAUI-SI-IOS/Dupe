@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 enum Tabs: Hashable {
     case main
@@ -16,16 +17,21 @@ enum Tabs: Hashable {
 
 struct IndexView: View {
     @State private var currentView: Tabs = .main //if true Feature else setting
+    @State private var authservice = AuthService.shared
     
     var body: some View {
         ZStack {
             Color.retroAtariPrimary.ignoresSafeArea()
             VStack {
                 HStack {
-                    Text(.introMessage)
-                        .font(.largeTitle)
-                        .bold()
-                }.padding()
+                    if let email = authservice.user?.email {
+                            Text("Welcome \(email)")
+                    } else {
+                            Text("Welcome")
+                    }
+                }
+                .font(.largeTitle)
+                .bold().padding()
                 
                 TabView(selection: $currentView) {
                     FeatureView() .tag(Tabs.main)
