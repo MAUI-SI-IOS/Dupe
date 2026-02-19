@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E24A9FF02F1D5D84006D702B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24A9FEF2F1D5D84006D702B /* Localizable.xcstrings */; };
+		E2B506632F4514E20044347D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E2B506622F4514E20044347D /* FirebaseAuth */; };
+		E2B506652F4514E20044347D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = E2B506642F4514E20044347D /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E2C021A02F1A787A005F4B39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E24A9FEF2F1D5D84006D702B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E2C021922F1A7879005F4B39 /* Dupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dupe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0219F2F1A787A005F4B39 /* DupeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DupeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C021A92F1A787A005F4B39 /* DupeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DupeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B506652F4514E20044347D /* FirebaseCore in Frameworks */,
+				E2B506632F4514E20044347D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,7 @@
 		E2C021892F1A7879005F4B39 = {
 			isa = PBXGroup;
 			children = (
+				E24A9FEF2F1D5D84006D702B /* Localizable.xcstrings */,
 				E2C021942F1A7879005F4B39 /* Dupe */,
 				E2C021A22F1A787A005F4B39 /* DupeTests */,
 				E2C021AC2F1A787A005F4B39 /* DupeUITests */,
@@ -112,6 +122,8 @@
 			);
 			name = Dupe;
 			packageProductDependencies = (
+				E2B506622F4514E20044347D /* FirebaseAuth */,
+				E2B506642F4514E20044347D /* FirebaseCore */,
 			);
 			productName = Dupe;
 			productReference = E2C021922F1A7879005F4B39 /* Dupe.app */;
@@ -192,9 +204,14 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
+				"fr-CA",
 			);
 			mainGroup = E2C021892F1A7879005F4B39;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E2B506612F45149B0044347D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E2C021932F1A7879005F4B39 /* Products */;
 			projectDirPath = "";
@@ -212,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E24A9FF02F1D5D84006D702B /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +344,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -380,6 +399,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -605,6 +625,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E2B506612F45149B0044347D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2B506622F4514E20044347D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B506612F45149B0044347D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E2B506642F4514E20044347D /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B506612F45149B0044347D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E2C0218A2F1A7879005F4B39 /* Project object */;
 }
