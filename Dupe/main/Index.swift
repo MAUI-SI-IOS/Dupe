@@ -18,22 +18,26 @@ struct IndexView: View {
     @State private var currentView: Tabs = .main //if true Feature else setting
     
     var body: some View {
-        VStack {
-            HStack {
-                Text(.introMessage)
-                    .font(.largeTitle)
-                    .bold()
-            }.padding()
-            
-            TabView(selection: $currentView) {
-                FeatureView() .tag(Tabs.main)
-                PersonnalView() .tag(Tabs.setting)
-                FeedBackView().tag(Tabs.rating)
+        ZStack {
+            Color.retroAtariPrimary.ignoresSafeArea()
+            VStack {
+                HStack {
+                    Text(.introMessage)
+                        .font(.largeTitle)
+                        .bold()
+                }.padding()
+                
+                TabView(selection: $currentView) {
+                    FeatureView() .tag(Tabs.main)
+                    PersonnalView() .tag(Tabs.setting)
+                    FeedBackView().tag(Tabs.rating)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .background(.clear)
+                
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            
+            .background(.clear)
         }
-        .background(.retroAtariPrimary)
     }
         
 }

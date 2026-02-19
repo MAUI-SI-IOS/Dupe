@@ -13,38 +13,33 @@ struct FeatureView: View {
     @State private var dragOffset: CGSize = .zero
     
     var body: some View {
-        VStack(spacing:50) {
-            NavigationStack{
+        NavigationStack{
+            ZStack {
+                Color.retroAtariPrimary.ignoresSafeArea()
+                
                 Grid(horizontalSpacing: 0, verticalSpacing: 0){
                     GridRow{
                         Image(systemName: "globe")
                         NavigationLink(destination: {}){
                             Text(.buttonRedundanceService)
-                                .foregroundColor(.black)
-                                .font(Font.title)
-                                .bold()
                                 .frame(width: 170, height: 170)
                                 .background(.retroAtariYellow, in: RoundedRectangle(cornerRadius: 15))
                         }
-                     
+                        
                     }
                     GridRow{
                         NavigationLink(destination: LoginView()){
                             Text(.buttonConnectionService)
-                                .foregroundColor(.black)
-                                .font(Font.title)
-                                .bold()
                                 .frame(width: 170, height: 170)
                                 .background(.retroAtariRed, in: RoundedRectangle(cornerRadius: 15))
                         }
-                        
-
                         Image(systemName: "globe")
                     }
                 }
-                .padding()
+                .foregroundColor(.black)
+                .font(Font.title)
+                .bold()
             }
-            
         }
     }
 }
