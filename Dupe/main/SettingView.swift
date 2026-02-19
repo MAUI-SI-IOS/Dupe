@@ -17,7 +17,7 @@ struct PersonnalView: View {
             Grid(horizontalSpacing: 0, verticalSpacing: 0){
                 GridRow{
                     Button(action: { analyticView.toggle() }){
-                        Text("Analytics")
+                        Text(.buttonAnalyticService)
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
@@ -33,7 +33,7 @@ struct PersonnalView: View {
                 GridRow{
                     Image(systemName: "globe")
                     Button(action: {settingView.toggle()}){
-                        Text("Settings")
+                        Text(.buttonSettingService)
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()
@@ -41,7 +41,7 @@ struct PersonnalView: View {
                             .background(.gray, in: RoundedRectangle(cornerRadius: 15))
                     }
                     .sheet(isPresented: $settingView) {
-                        settingsView()
+                        //settingsView()
                     }
                 }
             }

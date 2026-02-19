@@ -8,36 +8,43 @@
 import SwiftUI
 
 struct FeatureView: View {
+
     @State private var navigateToSetting: Bool = false
     @State private var dragOffset: CGSize = .zero
     
     var body: some View {
         VStack(spacing:50) {
-            Grid(horizontalSpacing: 0, verticalSpacing: 0){
-                GridRow{
-                    Image(systemName: "globe")
-                    Button(action: {}){
-                        Text("Check for Duplicates")
-                            .foregroundColor(.black)
-                            .font(Font.title)
-                            .bold()
-                            .frame(width: 170, height: 170)
-                            .background(.retroAtariYellow, in: RoundedRectangle(cornerRadius: 15))
+            NavigationStack{
+                Grid(horizontalSpacing: 0, verticalSpacing: 0){
+                    GridRow{
+                        Image(systemName: "globe")
+                        NavigationLink(destination: {}){
+                            Text(.buttonRedundanceService)
+                                .foregroundColor(.black)
+                                .font(Font.title)
+                                .bold()
+                                .frame(width: 170, height: 170)
+                                .background(.retroAtariYellow, in: RoundedRectangle(cornerRadius: 15))
+                        }
+                     
+                    }
+                    GridRow{
+                        NavigationLink(destination: LoginView()){
+                            Text(.buttonConnectionService)
+                                .foregroundColor(.black)
+                                .font(Font.title)
+                                .bold()
+                                .frame(width: 170, height: 170)
+                                .background(.retroAtariRed, in: RoundedRectangle(cornerRadius: 15))
+                        }
+                        
+
+                        Image(systemName: "globe")
                     }
                 }
-                GridRow{
-                    Button(action: {}){
-                        Text("Connect")
-                            .foregroundColor(.black)
-                            .font(Font.title)
-                            .bold()
-                            .frame(width: 170, height: 170)
-                            .background(.retroAtariRed, in: RoundedRectangle(cornerRadius: 15))
-                    }
-                    Image(systemName: "globe")
-                }
+                .padding()
             }
-            .padding()
+            
         }
     }
 }

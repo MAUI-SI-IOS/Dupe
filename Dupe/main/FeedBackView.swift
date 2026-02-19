@@ -11,13 +11,14 @@ struct FeedBackView: View {
     var body: some View {
         VStack(spacing:50) {
             
-            Text("\"ratings\"")
+            Text(.ratingsMessage)
                 .font(Font.largeTitle)
                 .bold()
+                
             Grid(horizontalSpacing: 10, verticalSpacing: 0){
                 GridRow{
                     Button(action: {}){
-                        Text("Ratings")
+                        Text(.buttonRatingService)
                             .foregroundColor(.black)
                             .font(Font.title)
                             .bold()

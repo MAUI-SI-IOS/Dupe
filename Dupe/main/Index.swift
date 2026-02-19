@@ -20,11 +20,9 @@ struct IndexView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("HI AGAIN, WELCOME BACK!!!")
+                Text(.introMessage)
                     .font(.largeTitle)
                     .bold()
-                Spacer()
-                Button(action: {}) { Image(systemName: "bulb") }
             }.padding()
             
             TabView(selection: $currentView) {
